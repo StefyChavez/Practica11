@@ -19,12 +19,24 @@ public class CandidatoControl {
     private final DignidadServicio dignidadServicio = new DignidadServicio();
     private final CandidatoServicio candidatoServicio = new CandidatoServicio();
     
-    public Candidato crear(String [] args){
+    public Candidato crear(String [] args) throws RuntimeException{
         Dignidad dignidad = this.dignidadServicio.buscarPorCodigo(Integer.valueOf(args[5]));
-        Candidato candidato = new Candidato(Integer.valueOf(args[0]),args[1],args[2],args[3],args[4],dignidad);
+        var candidato = new Candidato(this.convertirEntero(args[0]),args[1],args[2],args[3],args[4],dignidad);
         this.candidatoServicio.crear(candidato);
         return candidato;
     }
+    
+     private int convertirEntero(String numero){
+        try
+        {
+            return Integer.valueOf(numero);
+        }catch(NumberFormatException e){
+            throw new RuntimeException("El campo ingresaso solamente recibe "
+                    + "números");
+        }catch(Exception e){
+            throw new RuntimeException("Error inesperado");
+        }
+     }
     
     public Candidato buscarCandidato(String arg){
         return this.candidatoServicio.buscarPorCodigo(Integer.valueOf(arg));

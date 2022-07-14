@@ -214,6 +214,14 @@ public class UpdateCandidato extends javax.swing.JInternalFrame {
         
         this.candidatoControl.modificar(args);
         
+        try{
+            candidatoControl.crear(args);
+        }catch(RuntimeException e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar Candidato",JOptionPane.ERROR_MESSAGE); 
+        }
+        
         JOptionPane.showMessageDialog(this, "Usuario actualizado",
                 "Modificar Candidato", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed

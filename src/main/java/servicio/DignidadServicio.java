@@ -18,7 +18,13 @@ public class DignidadServicio implements IDignidadServicio{
 
     @Override
     public Dignidad crear(Dignidad dignidad) {
-        this.dignidadList.add(dignidad);
+        var dignidadBuscado=this.buscarPorCodigo(dignidad.getCodigo());
+        if(dignidadBuscado==null){
+            this.dignidadList.add(dignidad);
+        }else{
+            throw new RuntimeException("El código ingresado ya se encuentra "
+                    + "asignado al Cantón: "+dignidadBuscado.getCanton());
+        }
         return dignidad;
     }
 

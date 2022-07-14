@@ -182,20 +182,23 @@ public class CreateEleccion extends javax.swing.JInternalFrame {
         args[1]=this.jTextField2.getText();
         args[2]=this.jTextField3.getText();
         args[3]=this.jTextField4.getText();
+              
         
         try{
             eleccionControl.crear(args);
+            JOptionPane.showMessageDialog(this, "Datos Guardados Correctamente",
+                " Listar ", JOptionPane.INFORMATION_MESSAGE);
         }catch(RuntimeException e)
         {
             JOptionPane.showMessageDialog(this, e.getMessage(),
                         "Error al almacenar Elección",JOptionPane.ERROR_MESSAGE); 
         }
-        
+        /*
         //this.eleccionControl.crear(args);
         if(JOptionPane.showConfirmDialog(this,"Desea Guardas los Datos: ")==0){
             this.eleccionControl.crear(args);
         }
-        
+        */
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

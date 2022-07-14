@@ -212,6 +212,16 @@ public class CreateCandidato extends javax.swing.JInternalFrame {
         args[4]=this.jTextField4.getText();
         args[5]=this.jTextField5.getText();
         
+        try{
+            candidatoControl.crear(args);
+            JOptionPane.showMessageDialog(this, "Datos Guardados Correctamente",
+                " Listar ", JOptionPane.INFORMATION_MESSAGE);
+        }catch(RuntimeException e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar Elección",JOptionPane.ERROR_MESSAGE); 
+        }
+         
         if(JOptionPane.showConfirmDialog(this,"Desea Guardas los datos ")==0){
             this.candidatoControl.crear(args);
         }

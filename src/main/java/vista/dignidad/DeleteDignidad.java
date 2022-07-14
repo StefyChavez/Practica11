@@ -202,6 +202,15 @@ public class DeleteDignidad extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        String [] args = new String[6];
+        try{
+            dignidadControl.crear(args);
+        }catch(RuntimeException e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar Elección",JOptionPane.ERROR_MESSAGE); 
+        }
+                
         String arg;
         arg=this.jTextField1.getText();
         if(JOptionPane.showConfirmDialog(this,"Está seguro de eliminar")==0){

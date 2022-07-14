@@ -206,9 +206,16 @@ public class CreateDignidad extends javax.swing.JInternalFrame {
         //dignidadControl.crear(args);
         System.err.print(args[1]);
         
-        if(JOptionPane.showConfirmDialog(this,"Desea Guardas los Datos: ")==0){
-            this.dignidadControl.crear(args);
+        try{
+            dignidadControl.crear(args);
+            JOptionPane.showMessageDialog(this, "Datos Guardados Correctamente",
+                " Listar ", JOptionPane.INFORMATION_MESSAGE);
+        }catch(RuntimeException e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar Elección",JOptionPane.ERROR_MESSAGE); 
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

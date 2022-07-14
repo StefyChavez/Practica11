@@ -21,9 +21,21 @@ public class DignidadControl {
     
     public Dignidad crear(String [] args){
         Eleccion eleccion = this.eleccionServicio.buscarPorCodigo(Integer.valueOf(args[5]));
-        Dignidad dignidad = new Dignidad(Integer.valueOf(args[0]),args[1],Integer.valueOf(args[2]),args[3],args[4],eleccion);
+        var dignidad = new Dignidad(this.convertirEntero(args[0]),args[1],this.convertirEntero(args[2]),args[3],args[4],eleccion);
         this.dignidadServicio.crear(dignidad);
         return dignidad;
+    }
+    
+    private int convertirEntero(String numero){
+        try
+        {
+            return Integer.valueOf(numero);
+        }catch(NumberFormatException e){
+            throw new RuntimeException("El campo ingresaso solamente recibe "
+                    + "números");
+        }catch(Exception e){
+            throw new RuntimeException("Error inesperado");
+        }
     }
     
     public Dignidad buscarDignidad(String arg){

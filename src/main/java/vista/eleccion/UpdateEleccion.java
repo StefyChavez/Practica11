@@ -181,6 +181,14 @@ public class UpdateEleccion extends javax.swing.JInternalFrame {
         args[3]=this.jTextField4.getText();
         
         this.eleccionControl.modificar(args);
+                
+        try{
+            eleccionControl.crear(args);
+        }catch(RuntimeException e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar Elección",JOptionPane.ERROR_MESSAGE); 
+        }
         
         JOptionPane.showMessageDialog(this, "Usuario actualizado",
                 "Modificar Eleccion", JOptionPane.INFORMATION_MESSAGE);

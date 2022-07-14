@@ -23,7 +23,7 @@ public class EleccionServicio implements IEleccionServicio{
             this.eleccionList.add(eleccion);
         }else{
             throw new RuntimeException("El código ingresado ya se encuentra "
-                    + "asignado al Capitán: "+eleccionBuscado.getDescripcion());
+                    + "asignado ");
         }
         return eleccion;
     }

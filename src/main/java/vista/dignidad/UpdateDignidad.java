@@ -214,6 +214,14 @@ public class UpdateDignidad extends javax.swing.JInternalFrame {
         
         this.dignidadControl.modificar(args);
         
+        try{
+            dignidadControl.crear(args);
+        }catch(RuntimeException e)
+        {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error al almacenar Elección",JOptionPane.ERROR_MESSAGE); 
+        }
+        
         JOptionPane.showMessageDialog(this, "Usuario actualizado",
                 "Modificar Dignidad", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed

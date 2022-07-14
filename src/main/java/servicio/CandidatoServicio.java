@@ -20,7 +20,13 @@ public class CandidatoServicio implements ICandidatoServicio{
 
     @Override
     public Candidato crear(Candidato candidato) {
-        this.candidatoList.add(candidato);
+        var candidatoBuscado=this.buscarPorCodigo(candidato.getCodigo());
+        if(candidatoBuscado==null){
+            this.candidatoList.add(candidato);
+        }else{
+            throw new RuntimeException("El código ingresado ya se encuentra "
+                    + "asignado al Candidato: "+candidatoBuscado.getNombre());
+        }
         return candidato;
     }
 

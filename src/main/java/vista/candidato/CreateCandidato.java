@@ -221,10 +221,7 @@ public class CreateCandidato extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, e.getMessage(),
                         "Error al almacenar Elección",JOptionPane.ERROR_MESSAGE); 
         }
-         
-        if(JOptionPane.showConfirmDialog(this,"Desea Guardas los datos ")==0){
-            this.candidatoControl.crear(args);
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
